@@ -8,44 +8,56 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int number = 0;
-  void tekanTombol() {
-    setState(() {
-      number = number + 1;
-    });
-  }
-
-  void tekanTombolKurang() {
-    setState(() {
-      number = number - 1;
-    });
-  }
+  List<Widget> widgets = [];
+  int counter = 1;
+  // _MyAppState() {
+  //   for (int i = 0; i < 15; i++)
+  //     widgets.add(Text(
+  //       "Data ke- " + i.toString(),
+  //       style: TextStyle(fontSize: 30),
+  //     ));
+  // }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("App Demo Testing Belajar "),
+          title: Text("view & list view"),
         ),
-        body: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        body: ListView(
           children: <Widget>[
-            Text(
-              number.toString(),
-              style: TextStyle(fontSize: 10 + number.toDouble()),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                RaisedButton(
+                  child: Text("Tambah Data"),
+                  onPressed: () {
+                    setState(() {
+                      widgets.add(Text(
+                        "Data ke-" + counter.toString(),
+                        style: TextStyle(fontSize: 35),
+                      ));
+                      counter++;
+                    });
+                  },
+                ),
+                RaisedButton(
+                    child: Text("Tambah hapus"),
+                    onPressed: () {
+                      setState(() {
+                        widgets.removeLast();
+                        counter--;
+                      });
+                    })
+              ],
             ),
-            RaisedButton(
-              child: Text("Tambah"),
-              onPressed: tekanTombol,
-            ),
-            RaisedButton(
-              child: Text("Kurang"),
-              onPressed: tekanTombolKurang,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: widgets,
             ),
           ],
-        )),
+        ),
       ),
     );
   }
