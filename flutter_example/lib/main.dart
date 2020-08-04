@@ -10,13 +10,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   List<Widget> widgets = [];
   int counter = 1;
-  // _MyAppState() {
-  //   for (int i = 0; i < 15; i++)
-  //     widgets.add(Text(
-  //       "Data ke- " + i.toString(),
-  //       style: TextStyle(fontSize: 30),
-  //     ));
-  // }
 
   @override
   Widget build(BuildContext context) {
