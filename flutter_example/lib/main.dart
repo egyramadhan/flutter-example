@@ -2,51 +2,28 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  int number = 0;
-  void tekanTombol() {
-    setState(() {
-      number = number + 1;
-    });
-  }
-
-  void tekanTombolKurang() {
-    setState(() {
-      number = number - 1;
-    });
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("App Demo Testing Belajar "),
-        ),
-        body: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              number.toString(),
-              style: TextStyle(fontSize: 10 + number.toDouble()),
-            ),
-            RaisedButton(
-              child: Text("Tambah"),
-              onPressed: tekanTombol,
-            ),
-            RaisedButton(
-              child: Text("Kurang"),
-              onPressed: tekanTombolKurang,
-            ),
-          ],
-        )),
+        home: Scaffold(
+      appBar: AppBar(
+        title: Text("Latihan Text Style"),
       ),
-    );
+      body: Center(
+        child: Text(
+          "lorem insum",
+          style: TextStyle(
+            fontFamily: "Oswald",
+            fontStyle: FontStyle.italic,
+            fontSize: 30,
+            decoration: TextDecoration.lineThrough,
+            decorationColor: Colors.orange,
+            decorationThickness: 3,
+            decorationStyle: TextDecorationStyle.wavy,
+          ),
+        ),
+      ),
+    ));
   }
 }
